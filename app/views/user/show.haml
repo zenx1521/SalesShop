@@ -1,0 +1,12 @@
+.wrap{:style => "position:relative;top:100px;width:80%;left:50%;transform:translateX(-50%);background-color:yellow"}
+    %p
+        = @user.email
+
+    - @user.comments.each do |comment|
+        %p{:style => "background-color:blue;margin-bottom:10px;width:80%;left:50%;transform:translateX(-50%);position:relative"}
+            = comment.comment
+
+    = simple_form_for @user.comments.build do |f|
+        = f.input :comment
+        = f.hidden_field :user_id, value: @user.id
+        = f.submit

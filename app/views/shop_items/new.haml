@@ -1,0 +1,15 @@
+%br
+%br
+%br
+%br
+= simple_form_for @shop_item do |f|
+    = f.input :price 
+    = f.input :description
+    = f.input :title  
+    = f.input :category, collection: [:car,:motorcycle,:bike]
+    = f.fields_for :shop_item_image do |p|
+        = p.file_field :picture_path, :multiple => true
+  
+    = f.submit
+
+//name: "shop_item_image[picture_path][]"

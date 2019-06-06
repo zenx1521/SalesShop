@@ -1,0 +1,192 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ @import "bootstrap";
+ */
+
+
+@import "bootstrap";
+
+
+
+html,body {
+
+    height: 100%;
+
+}
+.row {
+    justify-content:center;
+}
+.shop_item_holder{
+    background:blue;
+    margin:10px;
+}
+
+.navbar {
+    height:10%;
+    position:fixed;
+    width:100%;
+    z-index: 1;
+}
+
+
+.buttons2{
+    padding:2vh;
+}
+#sidebarCollapse {
+    position:relative;
+    left: 20vh;
+}
+.navbar-brand {
+    z-index:2;
+}
+p {
+    padding: 0;
+    margin: 0;
+}
+.alert {
+    padding: 0;
+    border: 0;
+    margin:0;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    position:fixed;
+    top:10vh;
+    
+
+    
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+
+.buttons {
+    position:relative;
+    right: 7vw;
+    z-index:2;
+}
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+.main-content {
+
+    width: 80vw;
+    min-height: 80vh;
+    background-color:rgb(172, 172, 65) !important;
+    position:relative;
+    text-align:center;
+    top: 15vh;
+    bottom:0px !important;;
+    border-radius:10px;
+    left:50%;
+    transform:translateX(-50%);
+
+    transition: left 2s;
+
+}
+.main-content.active {
+    left:calc(50% + 10vw);
+
+}
+
+.carousel-inner img{
+    margin:auto;
+
+}
+.imageContainer{
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+}
+
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #7386D5;
+    color: #fff;
+    transition: all 2s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
