@@ -1,3 +1,17 @@
 // Place all the styles related to the ShopItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input {
+
+}
+
+form {
+  text-align:center;
+}
+
+.card {
+  top:200px;
+  left:50%;
+  transform:translateX(-50%);
+}

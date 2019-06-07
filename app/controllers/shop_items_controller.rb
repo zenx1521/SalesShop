@@ -65,7 +65,8 @@ class ShopItemsController < ApplicationController
     end 
 
     def index
-        @shop_items = current_user.shop_items.all 
+        #@shop_items = current_user.shop_items.all 
+        @shop_items = ShopItem.all
 
         respond_to do |format|
             format.html

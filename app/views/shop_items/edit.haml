@@ -1,11 +1,15 @@
-= simple_form_for @shop_item do |f|
-    = f.input :price 
-    = f.input :description
-    = f.input :title  
-    - @shop_item.shop_item_images.each do |p|
-        %img{:src => p.picture_path, :style => "width:40px"}
-        = check_box_tag("delete[#{p.id}]")
-    = f.fields_for :shop_item_image do |p|
-        = p.file_field :picture_path, :multiple => true
-  
-    = f.submit
+.card
+    .card-header
+        Edit
+    .card-block
+        = simple_form_for @shop_item do |f|
+            = f.input :price 
+            = f.input :description
+            = f.input :title  
+            - @shop_item.shop_item_images.each do |p|
+                %img{:src => p.picture_path, :style => "width:40px"}
+                = check_box_tag("delete[#{p.id}]")
+            = f.fields_for :shop_item_image do |p|
+                = p.file_field :picture_path, :multiple => true
+        
+            = f.submit

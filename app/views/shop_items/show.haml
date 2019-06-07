@@ -1,35 +1,5 @@
 
 .wrapper
-    %nav#sidebar.sticky-top
-        .sidebar-header
-            %h3 Bootstrap Sidebar
-        %ul.list-unstyled.components
-            %p Dummy Heading
-            %li.active
-                %a{:href => "#homeSubmenu", :data => {:toggle => "collapse"},:aria=>{:expanded => "false", :class => "dropdown-toggle"}} Home 
-                %ul{:class =>"collapse list-unstyled",:id => "homeSubmenu"}
-                    %li 
-                        %a{:href =>"#"} Home 1
-                    %li 
-                        %a{:href =>"#"} Home 1
-                    %li 
-                        %a{:href =>"#"} Home 1
-
-            %li
-                %a{:href => "#"} About
-            %li
-                %a{:href => "#pageSubmenu", :data=>{:toggle=>"collapse"}, :aria=>{:expanded => "true"}, :class=>"dropdown-toggle"} Pages 
-                %ul{:class=>"collapse list-unstyled", :id=>"pageSubmenu"}
-                    %li
-                        %a{:href=>"#"} Page1
-                    %li
-                        %a{:href=>"#"} Page1
-                    %li
-                        %a{:href=>"#"} Page1
-            %li
-                %a{:href=>"#"} Portfolio 
-            %li
-                %a{:href=>"#"} Contact
     .main-content.active
         %h2
             = @shop_item.title
@@ -55,5 +25,4 @@
         .buttons2    
             = link_to "Edit" , edit_shop_item_path(@shop_item),class: "btn btn-primary"
             = link_to "Delete", @shop_item, method: "delete", data: {confirm: "Are you sure?"}, class: "btn btn-success"
-        = react_component 'Main'
 

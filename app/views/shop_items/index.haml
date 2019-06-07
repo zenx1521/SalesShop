@@ -1,4 +1,5 @@
 .main-content
+
     %h2 Hello all shopitems 
     %form{:action => "/",:id=>"searchForm"}
         %select.category
@@ -29,6 +30,6 @@
                             = shop_item.price  
                             $
                         .btn.btn-success{:style => "margin-bottom:5px;"}+ 
-    = react_component 'AllItems'
+    //= react_component('AllItems')
     = link_to "Add shop item", new_shop_item_path(), class: "btn btn-primary"
     
