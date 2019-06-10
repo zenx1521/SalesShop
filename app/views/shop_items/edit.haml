@@ -1,4 +1,4 @@
-.card
+.card.shop_item_form
     .card-header
         Edit
     .card-block
@@ -6,6 +6,7 @@
             = f.input :price 
             = f.input :description
             = f.input :title  
+            = f.input :amount
             - @shop_item.shop_item_images.each do |p|
                 %img{:src => p.picture_path, :style => "width:40px"}
                 = check_box_tag("delete[#{p.id}]")

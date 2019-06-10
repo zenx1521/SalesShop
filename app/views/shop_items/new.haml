@@ -1,4 +1,4 @@
-.card
+.card.shop_item_form
     .card-header
         New Shop Item
     .card-block
@@ -6,6 +6,7 @@
             = f.input :price 
             = f.input :description
             = f.input :title  
+            = f.input :amount
             = f.input :category, collection: [:car,:motorcycle,:bike]
             = f.fields_for :shop_item_image do |p|
                 = p.file_field :picture_path, :multiple => true

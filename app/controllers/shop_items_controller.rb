@@ -76,7 +76,7 @@ class ShopItemsController < ApplicationController
 
     private 
     def item_params
-        params.require(:shop_item).permit(:price,:description,:title,:category)
+        params.require(:shop_item).permit(:price,:description,:title,:category,:amount)
     end
 
     def filtering_params

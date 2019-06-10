@@ -39,7 +39,14 @@ form {
     margin:auto;
 }
 
-.card {
+.bucket {
+    width: 70%;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.shop_item_form {
     top:200px;
     width:70%;
     left:50%;

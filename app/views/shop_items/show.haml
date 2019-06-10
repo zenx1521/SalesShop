@@ -8,7 +8,10 @@
         %p 
             = @shop_item.price
         %p 
-            = link_to @shop_item.user.email, user_path(@shop_item.user.id)
+            = @shop_item.amount
+        %p 
+            = link_to @shop_item.user.email, user_path(@shop_item.user.id), :style => "color:black"
+
         - if @shop_item.shop_item_images.length == 1
             %img{:src => @shop_item.shop_item_images[0].picture_path, :style => "width:400px", class:"image"}
         -else

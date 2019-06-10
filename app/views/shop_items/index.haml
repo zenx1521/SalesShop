@@ -1,6 +1,11 @@
+
 .main-content
 
     %h2 Hello all shopitems 
+
+    - if flash[:bucket_item_info]
+        .alert.alert-success
+            = flash[:bucket_item_info]
     %form{:action => "/",:id=>"searchForm"}
         %select.category
             %option{:value => "car"} Car
@@ -11,9 +16,19 @@
         %input.maxPrice{:placeholder => "Enter max shop_item price", :style =>"display:block;"}
 
         %input{:type => "submit", :value => "Search"}
-
-
-
+    .card.bucket 
+        .card-header
+            %a{:data => {:toggle => "collapse"},:href=>"#collapse-example",:aria => {:expanded => "true", :controls => "collapse-example", :id => "heading-example",:class => "d-block"}} Your shopping card
+        #collapse-example.collapse.show{:aria => {:labelledby => "heading-example"}}
+            .card-body
+                = current_user.bucket.pay_amount 
+                $ to pay
+                - current_user.bucket.bucket_items.each do |bucket_item|
+                    .bucket_item_holder
+                        %p{:style => "color:black;display: inline-block"}
+                            = bucket_item.title 
+                        .btn.btn-success.remove_from_bucket{:style => "margin-bottom:5px;",:data => {:id => bucket_item.id}}-
+                .btn.btn-success#pay Pay
     .container
         - @shop_items.each_slice(3) do |shop_item_for_row|
             .row.shop_items_holder
@@ -21,7 +36,7 @@
                     .col-3.shop_item_holder  
                         %h2
                             = link_to shop_item.title, shop_item_path(shop_item)
-                        - if !shop_item.shop_item_images.first.nil?
+                        - unless shop_item.shop_item_images.first.nil?
                             %p
                                 %img{:src => shop_item.shop_item_images.first.picture_path,:style => "width:80px"}
                         %p 
@@ -29,7 +44,7 @@
                         %p
                             = shop_item.price  
                             $
-                        .btn.btn-success{:style => "margin-bottom:5px;"}+ 
+                        .btn.btn-success.add_to_bucket{:style => "margin-bottom:5px;",:data => {:id => shop_item.id}}+ 
     //= react_component('AllItems')
     = link_to "Add shop item", new_shop_item_path(), class: "btn btn-primary"
     

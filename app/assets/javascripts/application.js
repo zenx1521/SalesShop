@@ -74,4 +74,43 @@ $(document).ready(function() {
       }
     });
   });
+  const bucket_items = $(".add_to_bucket");
+  const bucket_delete_buttons = $(".remove_from_bucket");
+  for (let i = 0; i < bucket_items.length; i++) {
+    $(bucket_items[i]).click(event => {
+      let amount = prompt("Please choose amount");
+      let item_id = event.target.dataset.id;
+      $.ajax({
+        url: "bucket_items/",
+        type: "POST",
+        data: { amount: amount, item_id: item_id },
+        headers: {
+          "X-CSRF-Token": $('meta[name="csrf-token"]').attr("content")
+        }
+      });
+    });
+  }
+
+  for (let i = 0; i < bucket_delete_buttons.length; i++) {
+    $(bucket_delete_buttons[i]).click(event => {
+      let id_to_delete = event.target.dataset.id;
+      $.ajax({
+        url: "bucket_items/" + id_to_delete,
+        type: "DELETE",
+        headers: {
+          "X-CSRF-Token": $('meta[name="csrf-token"]').attr("content")
+        }
+      });
+    });
+  }
+
+  $("#pay").click(event => {
+    $.ajax({
+      url: "buckets/",
+      type: "POST",
+      headers: {
+        "X-CSRF-Token": $('meta[name="csrf-token"]').attr("content")
+      }
+    });
+  });
 });

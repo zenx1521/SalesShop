@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_211836) do
+ActiveRecord::Schema.define(version: 2019_06_10_205054) do
+
+  create_table "bucket_items", force: :cascade do |t|
+    t.string "title"
+    t.integer "price"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "bucket_id"
+    t.integer "corresponding_item_id"
+  end
+
+  create_table "buckets", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "pay_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "comment"
@@ -34,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_06_02_211836) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "category"
+    t.integer "amount"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_06_02_211836) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "balance"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
